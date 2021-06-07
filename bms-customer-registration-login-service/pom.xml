@@ -9,15 +9,19 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.bms</groupId>
-	<artifactId>bms-api-gateway</artifactId>
+	<artifactId>bms-customer-registration-login-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bms-api-gateway</name>
-	<description>BMS Api Gateway</description>
+	<name>bms-customer-registration-login-service</name>
+	<description>BMS Customer Registration and Login Servive</description>
 	<properties>
 		<java.version>1.8</java.version>
-				<spring-cloud.version>2020.0.3</spring-cloud.version>
+		<spring-cloud.version>2020.0.3</spring-cloud.version>
 	</properties>
-<dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -28,21 +32,35 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
-	 <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-zuul -->
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
-    <version>2.2.8.RELEASE</version>
-</dependency>
-	 
-
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
 		</dependency>
+	 
 
-	  
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-ribbon -->
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+    <version>2.2.8.RELEASE</version>
+</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -62,7 +80,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
- 
+
 	<build>
 		<plugins>
 			<plugin>
